@@ -13,14 +13,13 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def download(update: Update, context: ContextTypes.DEFAULT_TYPE):
     message = update.message.text
     link = message.strip()
-
+    print(link)
     # Check if the message is a valid URL
     if not link.startswith("http://") and not link.startswith("https://"):
         await update.message.reply_text("Please send a valid URL.")
         return
 
     await update.message.reply_text("Downloading your file...")
-
     # Set up Aria2 command
     file_name = "downloaded_file"
     command = ["aria2c", "-o", file_name, link]
