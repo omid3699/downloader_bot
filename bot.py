@@ -12,7 +12,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 # Command to handle download links
 async def download(update: Update, context: ContextTypes.DEFAULT_TYPE):
     message = update.message.text
-    link = message.split(" ")
+    link = message.split(" ")[1]
     await update.message.reply_html(f"downloading <b>{link}</b>")
     # Check if the message is a valid URL
     if not link.startswith("http://") and not link.startswith("https://"):
